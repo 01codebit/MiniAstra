@@ -1,0 +1,13 @@
+{
+	"name": "com.white3.projectTemplate",
+	"displayName": "Add Name here",
+	"version": "1.0.0",
+	"unity": "2019.2",
+	"description": "",
+	"keywords": [],
+	"category": "Application",
+	"repository": {
+		"type": "git",
+		"url": "git+https://gitlab.white3.it/core/ProjectTemplate.git"
+	}
+}

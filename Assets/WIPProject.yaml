@@ -1,0 +1,3 @@
+ProjectSettingsPath: '[ProjectRoot]/ProjectSettings'
+Requirements:
+- ProjectCore==8.0.1
