@@ -1,0 +1,17 @@
+{
+	"_id": "5c913fcde9454c4411235008",
+	"avm": true,
+	"codice_famiglia": "07",
+	"delay": "-120 days, 0:00:00",
+	"destination_name": "PIAZZA MAZZINI",
+	"line_ref": "87",
+	"location": {
+		"coordinates": [
+			11.15009,
+			43.45234
+		],
+		"type": "Point"
+	},
+	"matricola_aziendale_veicolo": 3431,
+	"origin_name": "STAGGIA"
+}

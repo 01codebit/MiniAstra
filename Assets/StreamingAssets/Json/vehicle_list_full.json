@@ -1,0 +1,687 @@
+{
+    "count": 50,
+    "response": [
+        {
+            "_id": "5c913fcde9454c4411235008",
+            "avm": true,
+            "codice_famiglia": "07",
+            "delay": "-120 days, 0:00:00",
+            "destination_name": "PIAZZA MAZZINI",
+            "line_ref": "87",
+            "location": {
+                "coordinates": [
+                    11.15009,
+                    43.45234
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 3431,
+            "origin_name": "STAGGIA"
+        },
+        {
+            "_id": "5c913fcde9454c441123500c",
+            "avm": true,
+            "codice_famiglia": "07",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": null,
+            "location": {
+                "coordinates": [
+                    11.35808,
+                    43.31573
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 3556,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcde9454c4411235014",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "-27 days, 0:00:00",
+            "destination_name": "CAPEZZINE (ISTITUTO AGRARIO)",
+            "line_ref": "160",
+            "location": {
+                "coordinates": [
+                    11.93116,
+                    43.18122
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1145,
+            "origin_name": "CAMUCIA V.LE MATTEOTTI (BAR ETRUSCO)"
+        },
+        {
+            "_id": "5c913fcde9454c4411235018",
+            "avm": false,
+            "codice_famiglia": "12",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 70001,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcde9454c441123501c",
+            "avm": false,
+            "codice_famiglia": "01",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 14,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcde9454c4411235020",
+            "avm": false,
+            "codice_famiglia": "04",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 1632,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcde9454c4411235024",
+            "avm": false,
+            "codice_famiglia": "07",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 3281,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcde9454c441123502e",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "644",
+            "location": {
+                "coordinates": [
+                    11.09472,
+                    42.79098
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1642,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcde9454c4411235032",
+            "avm": false,
+            "codice_famiglia": "02",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 512,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235036",
+            "avm": false,
+            "codice_famiglia": "01",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 45,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c441123503a",
+            "avm": false,
+            "codice_famiglia": "07",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 3268,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c441123503e",
+            "avm": false,
+            "codice_famiglia": "12",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5315,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235042",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 1735,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235046",
+            "avm": false,
+            "codice_famiglia": "07",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 3286,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c441123504a",
+            "avm": false,
+            "codice_famiglia": "12",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5305,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235054",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "0:00:00",
+            "destination_name": "RAPOLANO-P.ZZA DELLA REPUBBLICA",
+            "line_ref": "39",
+            "location": {
+                "coordinates": [
+                    11.32756,
+                    43.32332
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1146,
+            "origin_name": "AUTOSTAZIONE [4]"
+        },
+        {
+            "_id": "5c913fcee9454c441123505e",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "0:00:00",
+            "destination_name": "ROSIA",
+            "line_ref": "51",
+            "location": {
+                "coordinates": [
+                    11.35706,
+                    43.31569
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1107,
+            "origin_name": "SIENA - Ferrovia"
+        },
+        {
+            "_id": "5c913fcee9454c4411235068",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "0:00:00",
+            "destination_name": "SINALUNGA F.S.",
+            "line_ref": "39",
+            "location": {
+                "coordinates": [
+                    11.35838,
+                    43.31394
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1076,
+            "origin_name": "TERMINAL PESCAIA BOX 2"
+        },
+        {
+            "_id": "5c913fcee9454c441123506c",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 1720,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235076",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "0:00:00",
+            "destination_name": "POGGIBONSI F.S.",
+            "line_ref": "59",
+            "location": {
+                "coordinates": [
+                    11.32766,
+                    43.32301
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1211,
+            "origin_name": "SIENA-VIA TOZZI"
+        },
+        {
+            "_id": "5c913fcee9454c4411235080",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "234",
+            "location": {
+                "coordinates": [
+                    11.82637,
+                    43.0374
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1019,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c4411235086",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "-129 days, 0:00:00",
+            "destination_name": "CAPEZZINE (ISTITUTO AGRARIO)",
+            "line_ref": "160",
+            "location": {
+                "coordinates": [
+                    11.90487,
+                    43.22238
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1309,
+            "origin_name": "BISCIANO ZONA IND.LE (DEPOSITO TIEMME)"
+        },
+        {
+            "_id": "5c913fcee9454c4411235090",
+            "avm": true,
+            "codice_famiglia": "07",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "247",
+            "location": {
+                "coordinates": [
+                    11.14821,
+                    43.44769
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 4103,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c4411235094",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 1169,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235098",
+            "avm": false,
+            "codice_famiglia": "12",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5330,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c441123509c",
+            "avm": false,
+            "codice_famiglia": "05",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5034,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350a0",
+            "avm": false,
+            "codice_famiglia": "02",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 501,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350a4",
+            "avm": false,
+            "codice_famiglia": "07",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 3101,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350a8",
+            "avm": false,
+            "codice_famiglia": "12",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5308,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350ae",
+            "avm": true,
+            "codice_famiglia": "07",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "282",
+            "location": {
+                "coordinates": [
+                    12.55242,
+                    43.05419
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 5553,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c44112350b2",
+            "avm": false,
+            "codice_famiglia": "12",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5708,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350b6",
+            "avm": false,
+            "codice_famiglia": "12",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 70004,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350ba",
+            "avm": false,
+            "codice_famiglia": "05",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5031,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350be",
+            "avm": false,
+            "codice_famiglia": "07",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 3289,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350c4",
+            "avm": true,
+            "codice_famiglia": "07",
+            "delay": "-11 days, 0:00:00",
+            "destination_name": "F.S. via MAMELI",
+            "line_ref": "602",
+            "location": {
+                "coordinates": [
+                    11.10537,
+                    42.77704
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 3402,
+            "origin_name": "F.S. via MAMELI"
+        },
+        {
+            "_id": "5c913fcee9454c44112350cc",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "0:01:12",
+            "destination_name": "PAGANICO PIAZZALE",
+            "line_ref": "493",
+            "location": {
+                "coordinates": [
+                    11.28142,
+                    42.97561
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 2019,
+            "origin_name": "CIVITELLA MARITTIMA CENTRO"
+        },
+        {
+            "_id": "5c913fcee9454c44112350d2",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "282",
+            "location": {
+                "coordinates": [
+                    11.13835,
+                    43.42016
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1350,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c44112350dc",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "0:00:00",
+            "destination_name": "FOLLONICA AMENDOLA 167",
+            "line_ref": "515",
+            "location": {
+                "coordinates": [
+                    10.86331,
+                    43.01491
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1282,
+            "origin_name": "MASSA MARITTIMA RISORGIMENTO"
+        },
+        {
+            "_id": "5c913fcee9454c44112350e6",
+            "avm": true,
+            "codice_famiglia": "07",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "245",
+            "location": {
+                "coordinates": [
+                    11.35793,
+                    43.3161
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 4402,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c44112350ea",
+            "avm": false,
+            "codice_famiglia": "02",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 540,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350ee",
+            "avm": false,
+            "codice_famiglia": "00",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 9997,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c44112350f8",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "-404 days, 0:00:00",
+            "destination_name": null,
+            "line_ref": "362",
+            "location": {
+                "coordinates": [
+                    11.16343,
+                    43.00287
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1193,
+            "origin_name": "SASSOFORTINO CENTRO"
+        },
+        {
+            "_id": "5c913fcee9454c44112350fd",
+            "avm": false,
+            "codice_famiglia": "04",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 1457,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235101",
+            "avm": false,
+            "codice_famiglia": "05",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 5102,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235105",
+            "avm": false,
+            "codice_famiglia": "04",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": null,
+            "location": {
+                "coordinates": [
+                    11.09383,
+                    42.79022
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1832,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c4411235109",
+            "avm": false,
+            "codice_famiglia": "02",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 546,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c441123510d",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "",
+            "destination_name": "",
+            "line_ref": "",
+            "location": null,
+            "matricola_aziendale_veicolo": 1652,
+            "origin_name": ""
+        },
+        {
+            "_id": "5c913fcee9454c4411235115",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": null,
+            "location": {
+                "coordinates": [
+                    11.35694,
+                    43.31517
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1713,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c441123511d",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "661",
+            "location": {
+                "coordinates": [
+                    11.09348,
+                    42.7905
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 2039,
+            "origin_name": null
+        },
+        {
+            "_id": "5c913fcee9454c4411235127",
+            "avm": true,
+            "codice_famiglia": "04",
+            "delay": "None",
+            "destination_name": null,
+            "line_ref": "661",
+            "location": {
+                "coordinates": [
+                    11.09309,
+                    42.79219
+                ],
+                "type": "Point"
+            },
+            "matricola_aziendale_veicolo": 1491,
+            "origin_name": null
+        }
+    ]
+}
