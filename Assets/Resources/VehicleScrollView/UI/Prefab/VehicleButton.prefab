@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8508866659547926250}
   - component: {fileID: 8508866659547926244}
   - component: {fileID: 8508866659547926245}
+  - component: {fileID: 8109907788535858902}
   m_Layer: 5
   m_Name: TurnTextLabel
   m_TagString: Untagged
@@ -157,6 +158,24 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8109907788535858902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866659547926251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8508866659547926245}
+  _identifier: TurnLabel
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0
 --- !u!1 &8508866660016122472
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +187,7 @@ GameObject:
   - component: {fileID: 8508866660016122475}
   - component: {fileID: 8508866660016122469}
   - component: {fileID: 8508866660016122474}
+  - component: {fileID: 160182515558559154}
   m_Layer: 5
   m_Name: StatusTextLabel
   m_TagString: Untagged
@@ -314,6 +334,24 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &160182515558559154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660016122472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8508866660016122474}
+  _identifier: StatusLabel
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0
 --- !u!1 &8508866660105414207
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +363,7 @@ GameObject:
   - component: {fileID: 8508866660105414206}
   - component: {fileID: 8508866660105414200}
   - component: {fileID: 8508866660105414201}
+  - component: {fileID: 461403957708365284}
   m_Layer: 5
   m_Name: NumberTextLabel
   m_TagString: Untagged
@@ -471,6 +510,24 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &461403957708365284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660105414207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8508866660105414201}
+  _identifier: NumberLabel
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0
 --- !u!1 &8508866660195204442
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +539,7 @@ GameObject:
   - component: {fileID: 8508866660195204437}
   - component: {fileID: 8508866660195204439}
   - component: {fileID: 8508866660195204436}
+  - component: {fileID: 584672527834539594}
   m_Layer: 5
   m_Name: TypeTextLabel
   m_TagString: Untagged
@@ -628,6 +686,24 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &584672527834539594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660195204442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8508866660195204436}
+  _identifier: TypeLabel
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0
 --- !u!1 &8508866660352090208
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +715,7 @@ GameObject:
   - component: {fileID: 8508866660352090211}
   - component: {fileID: 8508866660352073629}
   - component: {fileID: 8508866660352090210}
+  - component: {fileID: 2821364673253147495}
   m_Layer: 5
   m_Name: AvmImage
   m_TagString: Untagged
@@ -702,6 +779,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2821364673253147495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660352090208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8508866660352090210}
+  _identifier: AvmImage
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0
 --- !u!1 &8508866660571941061
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +808,7 @@ GameObject:
   - component: {fileID: 8508866660571941060}
   - component: {fileID: 8508866660571941062}
   - component: {fileID: 8508866660571941063}
+  - component: {fileID: 1956704883141231023}
   m_Layer: 5
   m_Name: TypeImage
   m_TagString: Untagged
@@ -776,6 +872,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1956704883141231023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660571941061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8508866660571941063}
+  _identifier: TypeImage
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0
 --- !u!1 &8508866660770118980
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +901,7 @@ GameObject:
   - component: {fileID: 8508866660770118983}
   - component: {fileID: 8508866660770118977}
   - component: {fileID: 8508866660770118982}
+  - component: {fileID: 5520308806254454059}
   m_Layer: 5
   m_Name: AvmTextLabel
   m_TagString: Untagged
@@ -933,6 +1048,24 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5520308806254454059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660770118980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 8508866660770118982}
+  _identifier: AvmLabel
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0
 --- !u!1 &8508866660995144720
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +1082,8 @@ GameObject:
   - component: {fileID: -9090251133627667822}
   - component: {fileID: 872235919}
   - component: {fileID: 872235920}
+  - component: {fileID: 3834425372443062143}
+  - component: {fileID: 6937850116979697038}
   m_Layer: 5
   m_Name: VehicleButton
   m_TagString: Untagged
@@ -1031,13 +1166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab05b41f706bd3e74a072e93c2e1353e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberLabel: {fileID: 8508866660105414201}
-  avmLabel: {fileID: 8508866660770118982}
-  statusLabel: {fileID: 8508866660016122474}
-  turnLabel: {fileID: 8508866659547926245}
-  typeLabel: {fileID: 8508866660195204436}
-  avmImage: {fileID: 8508866660352090210}
-  typeImage: {fileID: 8508866660571941063}
   defaultIcon: {fileID: 21300000, guid: fef2fca16427e3f76b2608714b08308d, type: 3}
   autocarroIcon: {fileID: 21300000, guid: 544752e89172857bf9b67efd17a517e9, type: 3}
   autovetturaIcon: {fileID: 21300000, guid: 6a2935b3a3a154d4e993819ae5c5eadb, type: 3}
@@ -1045,7 +1173,6 @@ MonoBehaviour:
   nccIcon: {fileID: 21300000, guid: 4f6dbbfd46303dc629cd821c3d133d9b, type: 3}
   scuolabusIcon: {fileID: 21300000, guid: b6c5ed8b730a2ec45b929abca74c4dbe, type: 3}
   urbanoIcon: {fileID: 21300000, guid: f60e3a1a47f0918f383797a72af93c73, type: 3}
-  button: {fileID: 675925646551429328}
 --- !u!114 &675925646551429328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,13 +1248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab05b41f706bd3e74a072e93c2e1353e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberLabel: {fileID: 8508866660105414201}
-  avmLabel: {fileID: 8508866660770118982}
-  statusLabel: {fileID: 8508866660016122474}
-  turnLabel: {fileID: 8508866659547926245}
-  typeLabel: {fileID: 8508866660195204436}
-  avmImage: {fileID: 8508866660352090210}
-  typeImage: {fileID: 8508866660571941063}
   defaultIcon: {fileID: 21300000, guid: fef2fca16427e3f76b2608714b08308d, type: 3}
   autocarroIcon: {fileID: 21300000, guid: 544752e89172857bf9b67efd17a517e9, type: 3}
   autovetturaIcon: {fileID: 21300000, guid: 6a2935b3a3a154d4e993819ae5c5eadb, type: 3}
@@ -1135,7 +1255,6 @@ MonoBehaviour:
   nccIcon: {fileID: 21300000, guid: 4f6dbbfd46303dc629cd821c3d133d9b, type: 3}
   scuolabusIcon: {fileID: 21300000, guid: b6c5ed8b730a2ec45b929abca74c4dbe, type: 3}
   urbanoIcon: {fileID: 21300000, guid: f60e3a1a47f0918f383797a72af93c73, type: 3}
-  button: {fileID: 872235920}
 --- !u!114 &872235920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,3 +1298,38 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3834425372443062143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660995144720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers: []
+  _installerPrefabs: []
+  _autoRun: 1
+  _kernel: {fileID: 0}
+--- !u!114 &6937850116979697038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508866660995144720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 872235920}
+  _identifier: VehicleButton
+  _useSceneContext: 0
+  _context: {fileID: 3834425372443062143}
+  _bindType: 0

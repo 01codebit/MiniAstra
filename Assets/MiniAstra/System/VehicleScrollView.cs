@@ -11,18 +11,22 @@ using service;
 
 public class VehicleScrollView : MonoBehaviour
 {
-    public Transform contentPanel;
+    private RectTransform _contentTransform;
     // A: public SimpleObjectPool objectPool;
 
-
-    public GameObject prefab;
+    //public GameObject prefab;
 
     private VehicleService _service;
-
+    private VehicleButtonView.Factory _buttonFactory;
+    
     [Inject]
-    private void Inject(VehicleService service)
+    private void Inject(VehicleService service, 
+        [Inject (Id = "Content")] RectTransform transform,
+        VehicleButtonView.Factory buttonFactory)
     {
         _service = service;
+        _contentTransform = transform;
+        _buttonFactory = buttonFactory;
     }
 
     // Start is called before the first frame update
@@ -45,9 +49,9 @@ public class VehicleScrollView : MonoBehaviour
         vehicleButton.BindModel(v);
     */
 
-
-        GameObject newButton = (GameObject)GameObject.Instantiate(prefab);
-        newButton.transform.SetParent(contentPanel);
+//        GameObject newButton = (GameObject)GameObject.Instantiate(prefab);
+        VehicleButtonView newButton = _buttonFactory.Create();
+        newButton.transform.SetParent(_contentTransform);
 
         VehicleButtonView vehicleButton = newButton.GetComponent<VehicleButtonView>();
         vehicleButton?.BindModel(v);

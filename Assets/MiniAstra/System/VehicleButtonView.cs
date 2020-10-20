@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using Zenject;
 
 using System;
 using TMPro;
@@ -11,15 +12,14 @@ using model;
 
 public class VehicleButtonView : MonoBehaviour
 {
+    private TextMeshProUGUI _numberLabel;
+    private TextMeshProUGUI _avmLabel;
+    private TextMeshProUGUI _statusLabel;
+    private TextMeshProUGUI _turnLabel;
+    private TextMeshProUGUI _typeLabel;
 
-    public TextMeshProUGUI numberLabel;
-    public TextMeshProUGUI avmLabel;
-    public TextMeshProUGUI statusLabel;
-    public TextMeshProUGUI turnLabel;
-    public TextMeshProUGUI typeLabel;
-
-    public Image avmImage;
-    public Image typeImage;
+    private Image _avmImage;
+    private Image _typeImage;
 
     public Sprite defaultIcon;
     public Sprite autocarroIcon;
@@ -29,9 +29,33 @@ public class VehicleButtonView : MonoBehaviour
     public Sprite scuolabusIcon;
     public Sprite urbanoIcon;
 
-    public Button button;
+    private Button _button;
+
+    [Inject]
+    private void Inject([Inject (Id="VehicleButton")] Button button,
+        [Inject (Id="NumberLabel")] TextMeshProUGUI numberLabel,
+        [Inject (Id="AvmLabel")] TextMeshProUGUI avmLabel,
+        [Inject (Id="StatusLabel")] TextMeshProUGUI statusLabel,
+        [Inject (Id="TurnLabel")] TextMeshProUGUI turnLabel,
+        [Inject (Id="TypeLabel")] TextMeshProUGUI typeLabel,
+        [Inject (Id="AvmImage")] Image avmImage,
+        [Inject (Id="TypeImage")] Image typeImage)
+    {
+        _button = button;
+
+        _numberLabel = numberLabel;
+        _avmLabel = avmLabel;
+        _statusLabel = statusLabel;
+        _turnLabel = turnLabel;
+        _typeLabel = typeLabel;
+
+        _avmImage = avmImage;
+        _typeImage = typeImage;
+    }
+
 
     private Vehicle vehicle = null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,13 +72,13 @@ public class VehicleButtonView : MonoBehaviour
         this.vehicle = v;
 
         String result = v.Id.Substring(v.Id.Length - 5);
-        this.numberLabel.SetText(result);
+        this._numberLabel.SetText(result);
         string avm = v.Avm ? "AVM OK" : "NO AVM";
-        this.avmLabel.SetText(avm);
-        this.statusLabel.SetText("IN ESERCIZIO");
-        this.turnLabel.SetText("NO T.MACCH.");
+        this._avmLabel.SetText(avm);
+        this._statusLabel.SetText("IN ESERCIZIO");
+        this._turnLabel.SetText("NO T.MACCH.");
 
-        this.typeLabel.SetText(CodiceFamigliaStr.TypeMap[v.CodiceFamiglia]);
+        this._typeLabel.SetText(CodiceFamigliaStr.TypeMap[v.CodiceFamiglia]);
 
         Sprite sp = defaultIcon;
         switch(v.CodiceFamiglia)
@@ -81,11 +105,11 @@ public class VehicleButtonView : MonoBehaviour
                 sp = defaultIcon;
                 break;
         }
-        this.typeImage.sprite = sp;
+        this._typeImage.sprite = sp;
     }
 
 
-    public IObservable<Unit> OnPress() => button.onClick.AsObservable().Select(x => Unit.Default);
+    public IObservable<Unit> OnPress() => _button.onClick.AsObservable().Select(x => Unit.Default);
 
 
     // custom IObservable
@@ -95,7 +119,7 @@ public class VehicleButtonView : MonoBehaviour
             (observer) =>
             {
                 if(this.vehicle!=null)
-                    button.onClick.AddListener(() => observer.OnNext(this.vehicle));
+                    _button.onClick.AddListener(() => observer.OnNext(this.vehicle));
                 else
                 {
                     //Debug.LogError("no vehicle configured");
@@ -105,4 +129,8 @@ public class VehicleButtonView : MonoBehaviour
             });
     }
 
+
+    public class Factory : PlaceholderFactory<VehicleButtonView>
+    {
+    }
 }
