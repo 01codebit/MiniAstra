@@ -18,7 +18,7 @@ public class VehicleScrollView : MonoBehaviour
 
     private VehicleService _service;
     private VehicleButtonView.Factory _buttonFactory;
-    
+
     [Inject]
     private void Inject(VehicleService service, 
         [Inject (Id = "Content")] RectTransform transform,
@@ -28,6 +28,7 @@ public class VehicleScrollView : MonoBehaviour
         _contentTransform = transform;
         _buttonFactory = buttonFactory;
     }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +51,10 @@ public class VehicleScrollView : MonoBehaviour
     */
 
 //        GameObject newButton = (GameObject)GameObject.Instantiate(prefab);
-        VehicleButtonView newButton = _buttonFactory.Create();
+        VehicleButtonView newButton = _buttonFactory.Create(v);
         newButton.transform.SetParent(_contentTransform);
 
-        VehicleButtonView vehicleButton = newButton.GetComponent<VehicleButtonView>();
-        vehicleButton?.BindModel(v);
+//        VehicleButtonView vehicleButton = newButton.GetComponent<VehicleButtonView>();
+//        vehicleButton?.BindModel(v);
     }
 }

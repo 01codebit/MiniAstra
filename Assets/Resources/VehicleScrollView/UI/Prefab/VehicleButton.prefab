@@ -738,9 +738,9 @@ RectTransform:
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 5, y: 0}
-  m_SizeDelta: {x: -230, y: 40}
+  m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &8508866660352073629
 CanvasRenderer:
@@ -1079,9 +1079,6 @@ GameObject:
   - component: {fileID: 8508866660995144722}
   - component: {fileID: 5826811917932904830}
   - component: {fileID: 675925646551429328}
-  - component: {fileID: -9090251133627667822}
-  - component: {fileID: 872235919}
-  - component: {fileID: 872235920}
   - component: {fileID: 3834425372443062143}
   - component: {fileID: 6937850116979697038}
   m_Layer: 5
@@ -1216,88 +1213,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-9090251133627667822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508866660995144720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: 60
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
---- !u!114 &872235919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508866660995144720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab05b41f706bd3e74a072e93c2e1353e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultIcon: {fileID: 21300000, guid: fef2fca16427e3f76b2608714b08308d, type: 3}
-  autocarroIcon: {fileID: 21300000, guid: 544752e89172857bf9b67efd17a517e9, type: 3}
-  autovetturaIcon: {fileID: 21300000, guid: 6a2935b3a3a154d4e993819ae5c5eadb, type: 3}
-  extraurbanoIcon: {fileID: 21300000, guid: c0c70dbb27580f738a4c1732216e3b7e, type: 3}
-  nccIcon: {fileID: 21300000, guid: 4f6dbbfd46303dc629cd821c3d133d9b, type: 3}
-  scuolabusIcon: {fileID: 21300000, guid: b6c5ed8b730a2ec45b929abca74c4dbe, type: 3}
-  urbanoIcon: {fileID: 21300000, guid: f60e3a1a47f0918f383797a72af93c73, type: 3}
---- !u!114 &872235920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508866660995144720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 8508866660995144722}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &3834425372443062143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 872235920}
+  - {fileID: 675925646551429328}
   _identifier: VehicleButton
   _useSceneContext: 0
   _context: {fileID: 3834425372443062143}

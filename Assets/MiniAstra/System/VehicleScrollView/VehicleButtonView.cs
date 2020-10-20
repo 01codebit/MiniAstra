@@ -10,7 +10,7 @@ using TMPro;
 using model;
 
 
-public class VehicleButtonView : MonoBehaviour
+public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>, IDisposable
 {
     private TextMeshProUGUI _numberLabel;
     private TextMeshProUGUI _avmLabel;
@@ -31,6 +31,8 @@ public class VehicleButtonView : MonoBehaviour
 
     private Button _button;
 
+    private VehicleSettings _settings;
+
     [Inject]
     private void Inject([Inject (Id="VehicleButton")] Button button,
         [Inject (Id="NumberLabel")] TextMeshProUGUI numberLabel,
@@ -39,7 +41,8 @@ public class VehicleButtonView : MonoBehaviour
         [Inject (Id="TurnLabel")] TextMeshProUGUI turnLabel,
         [Inject (Id="TypeLabel")] TextMeshProUGUI typeLabel,
         [Inject (Id="AvmImage")] Image avmImage,
-        [Inject (Id="TypeImage")] Image typeImage)
+        [Inject (Id="TypeImage")] Image typeImage,
+        VehicleSettings settings)
     {
         _button = button;
 
@@ -51,10 +54,12 @@ public class VehicleButtonView : MonoBehaviour
 
         _avmImage = avmImage;
         _typeImage = typeImage;
+
+        _settings = settings;
     }
 
 
-    private Vehicle vehicle = null;
+    private Vehicle _vehicle = null;
 
 
     // Start is called before the first frame update
@@ -67,9 +72,9 @@ public class VehicleButtonView : MonoBehaviour
     {        
     }
 
-    public void BindModel(Vehicle v)
+    private void BindModel(Vehicle v)
     {
-        this.vehicle = v;
+        this._vehicle = v;
 
         String result = v.Id.Substring(v.Id.Length - 5);
         this._numberLabel.SetText(result);
@@ -80,6 +85,9 @@ public class VehicleButtonView : MonoBehaviour
 
         this._typeLabel.SetText(CodiceFamigliaStr.TypeMap[v.CodiceFamiglia]);
 
+        this._typeImage.sprite = _settings.VehicleTypeToImage[v.CodiceFamiglia];
+
+/*
         Sprite sp = defaultIcon;
         switch(v.CodiceFamiglia)
         {
@@ -106,6 +114,8 @@ public class VehicleButtonView : MonoBehaviour
                 break;
         }
         this._typeImage.sprite = sp;
+*/
+
     }
 
 
@@ -118,8 +128,8 @@ public class VehicleButtonView : MonoBehaviour
         return Observable.Create<Vehicle> (
             (observer) =>
             {
-                if(this.vehicle!=null)
-                    _button.onClick.AddListener(() => observer.OnNext(this.vehicle));
+                if(this._vehicle!=null)
+                    _button.onClick.AddListener(() => observer.OnNext(this._vehicle));
                 else
                 {
                     //Debug.LogError("no vehicle configured");
@@ -130,7 +140,27 @@ public class VehicleButtonView : MonoBehaviour
     }
 
 
-    public class Factory : PlaceholderFactory<VehicleButtonView>
+    public class Factory : PlaceholderFactory<Vehicle, VehicleButtonView>
     {
     }
+
+
+    IMemoryPool _pool;
+
+    public void OnSpawned(Vehicle v, IMemoryPool pool)
+    {
+        _pool = pool;
+        BindModel(v);
+    }
+
+    public void OnDespawned()
+    {
+        _pool = null;
+    }
+
+    public void Dispose()
+    {
+        _pool.Despawn(this);
+    }
+
 }
