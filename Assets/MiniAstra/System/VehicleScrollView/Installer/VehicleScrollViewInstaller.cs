@@ -7,13 +7,12 @@ using model;
 public class VehicleScrollViewInstaller : MonoInstaller
 {
     public GameObject VehicleButtonPrefab;
+    public GameObject VehiclePanelPrefab;
 
     public VehicleSettings Settings;
 
     public override void InstallBindings()
     {
-        //Container.BindFactory<VehicleButtonView, VehicleButtonView.Factory>().FromComponentInNewPrefab(VehicleButtonPrefab).NonLazy();
-
         Container.BindFactory<Vehicle, VehicleButtonView, VehicleButtonView.Factory>().FromMonoPoolableMemoryPool(x => 
             x.WithInitialSize(50)
             .FromComponentInNewPrefab(VehicleButtonPrefab)
@@ -22,7 +21,17 @@ public class VehicleScrollViewInstaller : MonoInstaller
 
         Container.BindInstance(Settings).AsSingle().NonLazy();
 
+        Container.BindFactory<Vehicle, VehicleDetailsPanelView, VehicleDetailsPanelView.Factory>().FromMonoPoolableMemoryPool(x => 
+            x.WithInitialSize(3)
+            .FromComponentInNewPrefab(VehiclePanelPrefab)
+            .UnderTransformGroup("VehicleButtonPool")
+        );
 
-        // Container.BindMemoryPool<VehicleButtonView, VehicleButtonView.Pool>().WithInitialSize(10).FromComponentInNewPrefab(VehicleButtonPrefab).NonLazy();
+        SignalBusInstaller.Install(Container);
+
+        Container.DeclareSignal<PanelOpenSignal>();
+        Container.DeclareSignal<PanelCloseSignal>();
+
+        Container.BindInterfacesTo<VehiclePanelsCoordinator>().AsSingle();
     }
 }

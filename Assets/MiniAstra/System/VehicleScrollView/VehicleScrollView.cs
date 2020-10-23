@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,9 +13,6 @@ using service;
 public class VehicleScrollView : MonoBehaviour
 {
     private RectTransform _contentTransform;
-    // A: public SimpleObjectPool objectPool;
-
-    //public GameObject prefab;
 
     private VehicleService _service;
     private VehicleButtonView.Factory _buttonFactory;
@@ -29,8 +27,6 @@ public class VehicleScrollView : MonoBehaviour
         _buttonFactory = buttonFactory;
     }
     
-
-    // Start is called before the first frame update
     void Start()
     {
         string filepath = @"Assets/StreamingAssets/Json/vehicle_list_full.json";
@@ -40,21 +36,7 @@ public class VehicleScrollView : MonoBehaviour
 
     void OnGetVehicle(Vehicle v)
     {
-        Debug.Log(v.ToString());
-
-    /* A:
-        GameObject newButton = objectPool.GetObject();
-        newButton.transform.SetParent(contentPanel);
-
-        VehicleButtonView vehicleButton = newButton.GetComponent<VehicleButtonView>();
-        vehicleButton.BindModel(v);
-    */
-
-//        GameObject newButton = (GameObject)GameObject.Instantiate(prefab);
         VehicleButtonView newButton = _buttonFactory.Create(v);
         newButton.transform.SetParent(_contentTransform);
-
-//        VehicleButtonView vehicleButton = newButton.GetComponent<VehicleButtonView>();
-//        vehicleButton?.BindModel(v);
     }
 }

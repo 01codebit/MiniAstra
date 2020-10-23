@@ -33,6 +33,10 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
 
     private VehicleSettings _settings;
 
+    private Vehicle _vehicle = null;
+
+    private SignalBus _signalBus;
+
     [Inject]
     private void Inject([Inject (Id="VehicleButton")] Button button,
         [Inject (Id="NumberLabel")] TextMeshProUGUI numberLabel,
@@ -42,7 +46,8 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         [Inject (Id="TypeLabel")] TextMeshProUGUI typeLabel,
         [Inject (Id="AvmImage")] Image avmImage,
         [Inject (Id="TypeImage")] Image typeImage,
-        VehicleSettings settings)
+        VehicleSettings settings,
+        SignalBus signalBus)
     {
         _button = button;
 
@@ -56,10 +61,10 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         _typeImage = typeImage;
 
         _settings = settings;
+
+        _signalBus = signalBus;
+
     }
-
-
-    private Vehicle _vehicle = null;
 
 
     // Start is called before the first frame update
@@ -82,40 +87,17 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         this._avmLabel.SetText(avm);
         this._statusLabel.SetText("IN ESERCIZIO");
         this._turnLabel.SetText("NO T.MACCH.");
-
         this._typeLabel.SetText(CodiceFamigliaStr.TypeMap[v.CodiceFamiglia]);
-
         this._typeImage.sprite = _settings.VehicleTypeToImage[v.CodiceFamiglia];
 
-/*
-        Sprite sp = defaultIcon;
-        switch(v.CodiceFamiglia)
-        {
-            case CodiceFamigliaEnum.AUTOCARRO:
-                sp = autocarroIcon;
-                break;
-            case CodiceFamigliaEnum.AUTOVETTURA:
-                sp = autovetturaIcon;
-                break;
-            case CodiceFamigliaEnum.EXTRAURBANO:
-                sp = extraurbanoIcon;
-                break;
-            case CodiceFamigliaEnum.NOLEGGIO_CON_CONDUCENTE:
-                sp = nccIcon;
-                break;
-            case CodiceFamigliaEnum.SCUOLABUS:
-                sp = scuolabusIcon;
-                break;
-            case CodiceFamigliaEnum.URBANO:
-                sp = urbanoIcon;
-                break;
-            default:
-                sp = defaultIcon;
-                break;
-        }
-        this._typeImage.sprite = sp;
-*/
+        //_button.onClick.AddListener(() => OpenPanel());
+        _button.OnClickAsObservable().Subscribe(_ => OpenPanel());
+    }
 
+
+    private void OpenPanel()
+    {
+        _signalBus.Fire(new PanelOpenSignal(this._vehicle));
     }
 
 
@@ -129,7 +111,9 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
             (observer) =>
             {
                 if(this._vehicle!=null)
+                {
                     _button.onClick.AddListener(() => observer.OnNext(this._vehicle));
+                }
                 else
                 {
                     //Debug.LogError("no vehicle configured");
