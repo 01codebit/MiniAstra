@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+using System;
 using UniRx;
 using Zenject;
 
-using System;
 using TMPro;
 using model;
 
@@ -91,11 +92,11 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         this._typeImage.sprite = _settings.VehicleTypeToImage[v.CodiceFamiglia];
 
         //_button.onClick.AddListener(() => OpenPanel());
-        _button.OnClickAsObservable().Subscribe(_ => OpenPanel());
+        _button.OnClickAsObservable().Subscribe(_ => FireSignal());
     }
 
 
-    private void OpenPanel()
+    private void FireSignal()
     {
         _signalBus.Fire(new PanelOpenSignal(this._vehicle));
     }
@@ -104,7 +105,7 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
     public IObservable<Unit> OnPress() => _button.onClick.AsObservable().Select(x => Unit.Default);
 
 
-    // custom IObservable
+    // custom UniRx.IObservable
     public IObservable<Vehicle> ObservableOnPress()
     {
         return Observable.Create<Vehicle> (

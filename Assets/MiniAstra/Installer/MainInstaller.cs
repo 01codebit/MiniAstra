@@ -16,6 +16,5 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindInterfacesAndSelfTo<JsonLoader<Vehicle>>().AsSingle().NonLazy();
 
         Container.BindInstance(Settings).AsSingle().NonLazy();
-
     }
 }

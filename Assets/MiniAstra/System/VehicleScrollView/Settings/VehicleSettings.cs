@@ -10,5 +10,5 @@ using model;
 [CreateAssetMenu(fileName = "VehicleButtonSettings", menuName = "VehicleScrollView/VehicleSettings")]
 public class VehicleSettings : SerializedScriptableObject
 {
-    public Dictionary<CodiceFamigliaEnum, Sprite> VehicleTypeToImage = new Dictionary<CodiceFamigliaEnum, Sprite>();    
+    public Dictionary<CodiceFamigliaEnum, Sprite> VehicleTypeToImage = new Dictionary<CodiceFamigliaEnum, Sprite>();
 }
