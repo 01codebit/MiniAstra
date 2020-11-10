@@ -13,19 +13,21 @@ public class VehicleScrollViewInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.BindFactory<Vehicle, VehicleButtonView, VehicleButtonView.Factory>().FromMonoPoolableMemoryPool(x => 
-            x.WithInitialSize(50)
-            .FromComponentInNewPrefab(VehicleButtonPrefab)
-            .UnderTransformGroup("VehicleButtonPool")
-        );
+        Container.BindFactory<Vehicle, VehicleButtonView, VehicleButtonView.Factory>()
+            .FromMonoPoolableMemoryPool(x => 
+                x.WithInitialSize(50)
+                .FromComponentInNewPrefab(VehicleButtonPrefab)
+                .UnderTransformGroup("VehicleButtonPool")
+            );
 
         Container.BindInstance(Settings).AsSingle().NonLazy();
 
-        Container.BindFactory<Vehicle, VehicleDetailsPanelView, VehicleDetailsPanelView.Factory>().FromMonoPoolableMemoryPool(x => 
-            x.WithInitialSize(3)
-            .FromComponentInNewPrefab(VehiclePanelPrefab)
-            .UnderTransformGroup("VehicleButtonPool")
-        );
+        Container.BindFactory<Vehicle, VehicleDetailsPanelView, VehicleDetailsPanelView.Factory>()
+            .FromMonoPoolableMemoryPool(x => 
+                x.WithInitialSize(3)
+                .FromComponentInNewPrefab(VehiclePanelPrefab)
+                .UnderTransformGroup("VehicleButtonPool")
+            );
 
         SignalBusInstaller.Install(Container);
 

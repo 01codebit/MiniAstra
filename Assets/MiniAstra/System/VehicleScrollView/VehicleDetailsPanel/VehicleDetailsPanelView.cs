@@ -15,10 +15,7 @@ public class VehicleDetailsPanelView : MonoBehaviour, IPoolable<Vehicle, IMemory
     private Button _closeButton;
 
     private Tween _openTween = null;
-    private IDisposable _openTweenDisp = null;
     private Tween _closeTween = null;
-    private IDisposable _closeTweenDisp = null;
-    private bool _opening = false;
     private bool _closing = false;
 
     private VehicleSettings _settings;
@@ -42,11 +39,17 @@ public class VehicleDetailsPanelView : MonoBehaviour, IPoolable<Vehicle, IMemory
         _settings = settings;
 
         _closeButton = closeButton;
-        _closeButton.onClick.AddListener(() => Close());
+        _closeButton.onClick.AddListener(() => SendCloseSignal());
 
         _signalBus = signalBus;
     }
 
+    void SendCloseSignal()
+    {
+        _signalBus.Fire(new PanelCloseSignal(this));
+    }
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +84,7 @@ public class VehicleDetailsPanelView : MonoBehaviour, IPoolable<Vehicle, IMemory
     public void OnSpawned(Vehicle v, IMemoryPool pool)
     {
         _pool = pool;
+        transform.localScale = Vector3.zero;
         BindModel(v);
     }
 
@@ -91,77 +95,41 @@ public class VehicleDetailsPanelView : MonoBehaviour, IPoolable<Vehicle, IMemory
 
     public void Dispose()
     {
-        _signalBus.Fire(new PanelCloseSignal(this));
+        //_signalBus.Fire(new PanelCloseSignal(this));
         _pool.Despawn(this);
+    }
+
+    public bool Closing()
+    {
+        return _closing;
     }
     
     public void Show()
     {
         Debug.Log("[Show()]");
-        if (_opening)
-            return;
-
-        if (_closeTween != null)
+        if (_closing)
         {
-            _closeTween.Kill();
+            _closeTween?.Kill();
             _closing = false;
         }
 
-        if (_openTween == null)
-        {
-            transform.localScale = Vector3.zero;
-            _openTweenDisp?.Dispose();
-            _openTween = transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), _duration);
-            _openTweenDisp = _openTween.AsObservable().Subscribe(
-                _ => EmptyAction(),
-                _ => EmptyAction(),
-                () => OnOpenComplete());
-            _opening = true;
-        }
-    }
-
-    void OnOpenComplete()
-    {
-        _openTween?.Kill();
-        _opening = false;
-        _openTweenDisp.Dispose();
-    }
-
-
-    public void Close()
-    {
-        if (_closing)
-            return;
-        // return Observable.Empty<Unit>();
-        
-        if (_openTween != null)
-        {
-            _openTween.Kill();
-            _opening = false;
-        }
-
-        if (_closeTween == null)
-        {
-            _closeTween = transform.DOScale(new Vector3(0.0f, 0.0f, 0.0f), _duration);
-            _closeTweenDisp = _closeTween.AsObservable().Subscribe(
-                _ => EmptyAction(),
-                _ => EmptyAction(),
-                () => OnCloseComplete());
-
-            _closing = true;
-        }
+        _openTween = transform.DOScale(Vector3.one, _duration);
     }
     
-    void OnCloseComplete()
+    public IObservable<Unit> Close()
     {
-        _closeTween?.Kill();
-        _closing = false;
-        _closeTweenDisp.Dispose();
-    }
-
-    void EmptyAction()
-    {
+        //if (_closing)
+        //    return Observable.Empty<Unit>();
         
+        _openTween?.Kill();
+
+        _closeTween = transform.DOScale(Vector3.zero, _duration);
+
+        _closing = true;
+        return _closeTween.AsObservable()
+            .Where(x => x==DotweenState.Complete)
+            .Select(_ => Unit.Default);
+            //.AsUnitObservable();
     }
 }
 

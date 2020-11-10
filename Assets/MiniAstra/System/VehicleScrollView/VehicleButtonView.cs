@@ -92,7 +92,9 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         this._typeImage.sprite = _settings.VehicleTypeToImage[v.CodiceFamiglia];
 
         //_button.onClick.AddListener(() => OpenPanel());
-        _button.OnClickAsObservable().Subscribe(_ => FireSignal());
+        _button.OnClickAsObservable()
+            .Throttle(TimeSpan.FromMilliseconds(5))
+            .Subscribe(_ => FireSignal());
     }
 
 

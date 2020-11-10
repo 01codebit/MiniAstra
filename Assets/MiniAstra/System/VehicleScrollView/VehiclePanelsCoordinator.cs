@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using Zenject;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ public class VehiclePanelsCoordinator : IInitializable
 
     //private List<VehicleDetailsPanelView> _panels;
 
-    private SortedDictionary<string, VehicleDetailsPanelView> _panels;
+    private ConcurrentDictionary<string, VehicleDetailsPanelView> _panels;
     
     
     private RectTransform _canvasTransform;
@@ -48,9 +49,24 @@ public class VehiclePanelsCoordinator : IInitializable
             .ObserveOnMainThread()
             .Subscribe((s) => OnPanelCloseSignal(s));
 
-        _panels = new SortedDictionary<string, VehicleDetailsPanelView>();
+        _panels = new ConcurrentDictionary<string, VehicleDetailsPanelView>();
     }
 
+
+    void DoPanelClose(VehicleDetailsPanelView panelToClose)
+    {
+        string vid = panelToClose.GetVehicleId();
+        var disp = panelToClose.Close();
+        disp.Subscribe(_ =>
+        {
+            if (_panels.TryRemove(vid, out var panel))
+            {
+                panel.Dispose();
+                Debug.Log("dispose pannello _panels.Count: " + _panels.Count);
+            }
+        });
+    }
+    
 
     public void OnPanelCloseSignal(PanelCloseSignal signal)
     {
@@ -59,28 +75,48 @@ public class VehiclePanelsCoordinator : IInitializable
         var result = _panels[vid];
         if (result != null)
         {
-            _panels.Remove(vid);
-            sender.Close();
             Debug.Log("panels: " + _panels.Count);
+            DoPanelClose(result);
         }
     }
 
 
     void OpenPanel(PanelOpenSignal signal)
     {
+        Debug.Log("[OpenPanel]");
         var v = signal.SelectedVehicle;
 
         VehicleDetailsPanelView result = null;
         if(_panels.ContainsKey(v.Id))
             result = _panels[v.Id];
+
         if (result != null)
         {
-            _panels.Remove(v.Id);
-            Debug.Log("panels: " + _panels.Count);
-            result.Close();
+            Debug.Log("panello trovato");
+
+            if (result.Closing())
+            {
+                Debug.Log("panello in chiusura, lo riapro");
+                result.Show();
+            }
+            else
+            {
+                Debug.Log("panello da chiudere");
+                DoPanelClose(result);
+            }
         }
         else
         {
+            Debug.Log("panello da creare e aprire");
+
+            Debug.Log("_panels.Count: " + _panels.Count);
+            if (_panels.Count > 2)
+            {
+                Debug.Log("troppi pannelli!");
+                var panel = _panels.Values.First();
+                DoPanelClose(panel);
+            }
+
             VehicleDetailsPanelView newPanel = _panelFactory.Create(v);
             newPanel.transform.SetParent(_canvasTransform);
             newPanel.Show();
@@ -90,15 +126,10 @@ public class VehiclePanelsCoordinator : IInitializable
             int y = random.Next(-300, 300);
             newPanel.GetComponent<RectTransform>().anchoredPosition = new Vector2(x, y);
 
-            _panels.Add(v.Id, newPanel);
-            Debug.Log("panels: " + _panels.Count);
-            if (_panels.Count > 3)
-            {
-                var panel = _panels.Values.First();
-                _panels.Remove(panel.GetVehicleId());
-                panel.Close();
-            }
+            if(_panels.TryAdd(v.Id, newPanel))
+                Debug.Log("panel added");
+            Debug.Log("after Add: _panels.Count=" + _panels.Count);
         }
+        
     }
-
 }
