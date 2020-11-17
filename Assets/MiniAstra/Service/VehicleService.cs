@@ -13,7 +13,7 @@ namespace service
 {
     public class VehicleService
     {
-        public string path;
+        public string path = @"Assets/StreamingAssets/Json/vehicle_list_full.json";
 
         private Vehicle[] vehicles = null;
 

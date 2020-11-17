@@ -29,8 +29,8 @@ public class VehicleScrollView : MonoBehaviour
     
     void Start()
     {
-        string filepath = @"Assets/StreamingAssets/Json/vehicle_list_full.json";
-        _service.path = filepath;
+        //string filepath = @"Assets/StreamingAssets/Json/vehicle_list_full.json";
+        //_service.path = filepath;
         _service.GetVehicles().Subscribe(x => OnGetVehicle(x));
     }
 

@@ -41,6 +41,7 @@ public class Container3DCoordinator : IInitializable
 
     public void Initialize()
     {
+        /*
         _signalBus.GetStream<PanelOpenSignal>()
             .SubscribeOn(Scheduler.ThreadPool)
             .ObserveOnMainThread()
@@ -50,6 +51,7 @@ public class Container3DCoordinator : IInitializable
             .SubscribeOn(Scheduler.ThreadPool)
             .ObserveOnMainThread()
             .Subscribe((s) => OnPanelCloseSignal(s));
+        */
 
         _vehicles3D = new Directory<Vehicle3D>();
         _vehicles3D.Initialize();
@@ -82,20 +84,27 @@ public class Container3DCoordinator : IInitializable
         }
         else
         {
-            if(v.Avm)
-            {
-                Vehicle3D vehicle3D = null;
-                if(v.CodiceFamiglia==model.CodiceFamigliaEnum.EXTRAURBANO)
-                    vehicle3D = _extraurbanoFactory.Create(v);
-                else
-                    vehicle3D = _urbanoFactory.Create(v);
-
-                SetVehicle3DTransform(vehicle3D, v);
-
-                _vehicles3D.AddItem(v.Id, vehicle3D);
-            }
+            AddVehicle3D(v);
         }
     }
+
+
+    public void AddVehicle3D(Vehicle v)
+    {
+        if(v.Avm && v.Location.Coordinates!=null)
+        {
+            Vehicle3D vehicle3D = null;
+            if(v.CodiceFamiglia==model.CodiceFamigliaEnum.EXTRAURBANO)
+                vehicle3D = _extraurbanoFactory.Create(v);
+            else
+                vehicle3D = _urbanoFactory.Create(v);
+
+            SetVehicle3DTransform(vehicle3D, v);
+
+            _vehicles3D.AddItem(v.Id, vehicle3D);
+        }
+    }
+
 
     void SetVehicle3DTransform(Vehicle3D vehicle3D, Vehicle v)
     {
