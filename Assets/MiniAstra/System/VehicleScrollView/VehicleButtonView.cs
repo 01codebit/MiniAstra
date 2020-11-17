@@ -33,6 +33,7 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
     private Button _button;
 
     private VehicleSettings _settings;
+    private VehicleGPSSettings _gpsSettings;
 
     private Vehicle _vehicle = null;
 
@@ -48,6 +49,7 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         [Inject (Id="AvmImage")] Image avmImage,
         [Inject (Id="TypeImage")] Image typeImage,
         VehicleSettings settings,
+        VehicleGPSSettings gpsSettings,
         SignalBus signalBus)
     {
         _button = button;
@@ -62,6 +64,7 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         _typeImage = typeImage;
 
         _settings = settings;
+        _gpsSettings = gpsSettings;
 
         _signalBus = signalBus;
 
@@ -90,6 +93,15 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
         this._turnLabel.SetText("NO T.MACCH.");
         this._typeLabel.SetText(CodiceFamigliaStr.TypeMap[v.CodiceFamiglia]);
         this._typeImage.sprite = _settings.VehicleTypeToImage[v.CodiceFamiglia];
+
+        if(this._avmImage == null)
+            Debug.Log("this._avmImage null");
+        if(this._avmImage.sprite == null)
+            Debug.Log("this._avmImage.sprite null");
+        if(_gpsSettings.EnabledGPSToImage[v.Avm] == null)
+            Debug.Log("_gpsSettings.EnabledGPSToImage[v.Avm] null");
+
+        this._avmImage.sprite = _gpsSettings.EnabledGPSToImage[v.Avm];
 
         //_button.onClick.AddListener(() => OpenPanel());
         _button.OnClickAsObservable()

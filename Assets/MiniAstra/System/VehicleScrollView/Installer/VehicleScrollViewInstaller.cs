@@ -8,8 +8,8 @@ public class VehicleScrollViewInstaller : MonoInstaller
 {
     public GameObject VehicleButtonPrefab;
     public GameObject VehiclePanelPrefab;
-
     public VehicleSettings Settings;
+    public VehicleGPSSettings GPSSettings;
 
     public override void InstallBindings()
     {
@@ -20,20 +20,17 @@ public class VehicleScrollViewInstaller : MonoInstaller
                 .UnderTransformGroup("VehicleButtonPool")
             );
 
-        Container.BindInstance(Settings).AsSingle().NonLazy();
-
         Container.BindFactory<Vehicle, VehicleDetailsPanelView, VehicleDetailsPanelView.Factory>()
             .FromMonoPoolableMemoryPool(x => 
                 x.WithInitialSize(3)
                 .FromComponentInNewPrefab(VehiclePanelPrefab)
-                .UnderTransformGroup("VehicleButtonPool")
+                .UnderTransformGroup("VehiclePanelPool")
             );
 
-        SignalBusInstaller.Install(Container);
+        Container.BindInstance(Settings).AsSingle().NonLazy();
+    
+        Container.BindInstance(GPSSettings).AsSingle().NonLazy();
 
-        Container.DeclareSignal<PanelOpenSignal>();
-        Container.DeclareSignal<PanelCloseSignal>();
-
-        Container.BindInterfacesTo<VehiclePanelsCoordinator>().AsSingle();
+        Container.BindInterfacesTo<VehiclePanelsCoordinator>().AsSingle().NonLazy();
     }
 }

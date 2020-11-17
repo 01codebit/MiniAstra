@@ -106,7 +106,7 @@ public class VehicleDetailsPanelView : MonoBehaviour, IPoolable<Vehicle, IMemory
     
     public void Show()
     {
-        Debug.Log("[Show()]");
+        //Debug.Log("[Show()]");
         if (_closing)
         {
             _closeTween?.Kill();

@@ -5,6 +5,7 @@ using model;
 using service;
 using jsonloader;
 
+using TMPro;
 
 public class MainInstaller : MonoInstaller<MainInstaller>
 {
@@ -16,5 +17,10 @@ public class MainInstaller : MonoInstaller<MainInstaller>
         Container.BindInterfacesAndSelfTo<JsonLoader<Vehicle>>().AsSingle().NonLazy();
 
         Container.BindInstance(Settings).AsSingle().NonLazy();
+
+        SignalBusInstaller.Install(Container);
+
+        Container.DeclareSignal<PanelOpenSignal>();
+        Container.DeclareSignal<PanelCloseSignal>();
     }
 }

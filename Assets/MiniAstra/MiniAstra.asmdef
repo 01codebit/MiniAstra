@@ -1,0 +1,22 @@
+{
+    "name": "MiniAstra",
+    "references": [
+        "White3.AtlasCore",
+        "ProjectCore",
+        "UniRx",
+        "White3.WhiteEssential",
+        "Zenject",
+        "Packages",
+        "Unity.TextMeshPro",
+        "WhiTouchScript.TouchScript"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
