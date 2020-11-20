@@ -11,7 +11,7 @@ using jsonloader;
 
 namespace service
 {
-    public class VehicleService
+    public class VehicleService : IAsstraService
     {
         public string path = @"Assets/StreamingAssets/Json/vehicle_list_full.json";
 
@@ -31,7 +31,17 @@ namespace service
                 (observer) =>
                 {
                     if(vehicles==null)
-                        vehicles = _loader.LoadObjectsJson(this.path);
+                        try
+                        {
+                            if(_loader==null)
+                                Debug.Log("[VehicleService.GetVehicles] loader is null");
+                            else
+                                vehicles = _loader.LoadObjectsJson(this.path);
+                        }
+                        catch(Exception e)
+                        {
+                            Debug.Log(e.Message);
+                        }
 
                     foreach(var x in vehicles)
                     {

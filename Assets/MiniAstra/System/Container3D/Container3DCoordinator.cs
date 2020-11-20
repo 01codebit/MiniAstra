@@ -91,17 +91,29 @@ public class Container3DCoordinator : IInitializable
 
     public void AddVehicle3D(Vehicle v)
     {
-        if(v.Avm && v.Location.Coordinates!=null)
+        if(v!=null)
         {
-            Vehicle3D vehicle3D = null;
-            if(v.CodiceFamiglia==model.CodiceFamigliaEnum.EXTRAURBANO)
-                vehicle3D = _extraurbanoFactory.Create(v);
-            else
-                vehicle3D = _urbanoFactory.Create(v);
+            if(v.Avm && v.Location!=null && v.Location.Coordinates!=null)
+            {
 
-            SetVehicle3DTransform(vehicle3D, v);
+                var vv = _vehicles3D.GetItem(v.Id);
+                if(vv==null)
+                {
+                    Vehicle3D vehicle3D = null;
+                    if(v.CodiceFamiglia==model.CodiceFamigliaEnum.EXTRAURBANO)
+                        vehicle3D = _extraurbanoFactory.Create(v);
+                    else
+                        vehicle3D = _urbanoFactory.Create(v);
 
-            _vehicles3D.AddItem(v.Id, vehicle3D);
+                    SetVehicle3DTransform(vehicle3D, v);
+
+                    _vehicles3D.AddItem(v.Id, vehicle3D);
+                }
+                else 
+                {
+                    SetVehicle3DTransform(vv, v);
+                }
+            }
         }
     }
 

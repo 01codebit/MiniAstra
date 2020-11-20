@@ -18,7 +18,10 @@ namespace common
 
         public void AddItem(string key, T item)
         {
-            _items.Add(key, item);
+            if(_items.ContainsKey(key))
+                _items[key] = item;
+            else
+                _items.Add(key, item);
         }
 
         public void RemoveItem(string key)

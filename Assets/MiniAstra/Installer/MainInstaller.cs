@@ -13,8 +13,10 @@ public class MainInstaller : MonoInstaller<MainInstaller>
 
     public override void InstallBindings()
     {
-        Container.BindInterfacesAndSelfTo<VehicleService>().AsSingle().NonLazy();
         Container.BindInterfacesAndSelfTo<JsonLoader<Vehicle>>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<VehicleService>().AsSingle().NonLazy();
+
+        Container.BindInterfacesAndSelfTo<ContinuosFeeder>().AsSingle().NonLazy();
 
         Container.BindInstance(Settings).AsSingle().NonLazy();
 
