@@ -15,20 +15,20 @@ namespace service
     public class ContinuosFeeder : IInitializable, IObserver<Vehicle>, IAsstraService
     {
 
-        private VehicleService _service = new VehicleService();
+        private VehicleService _service;
         private List<Vehicle> _vehicles;
 
-/*
+
         [Inject]
         public void Inject(VehicleService service)
         {
             _service = service;
         }
-*/
+
         public void Initialize()
         {
             _vehicles = new List<Vehicle>();
-            
+
             //_service.GetVehicles().Subscribe(x => AddVehicle(x), x => LoadingCompleted());
             _service.GetVehicles().Subscribe(this);
         }
