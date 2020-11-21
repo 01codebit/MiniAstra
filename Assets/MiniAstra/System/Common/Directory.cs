@@ -41,5 +41,11 @@ namespace common
         {
             return _items.Count;
         }
+
+        public IEnumerable<T> GetItems()
+        {
+            foreach(var x in _items)
+                yield return x.Value;
+        }
     }
 }

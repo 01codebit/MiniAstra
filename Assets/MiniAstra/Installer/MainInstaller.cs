@@ -24,5 +24,7 @@ public class MainInstaller : MonoInstaller<MainInstaller>
 
         Container.DeclareSignal<PanelOpenSignal>();
         Container.DeclareSignal<PanelCloseSignal>();
+
+        Container.DeclareSignal<SearchTextSignal>();
     }
 }

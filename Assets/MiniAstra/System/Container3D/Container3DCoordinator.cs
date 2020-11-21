@@ -53,10 +53,15 @@ public class Container3DCoordinator : IInitializable
             .Subscribe((s) => OnPanelCloseSignal(s));
         */
 
+        _signalBus.GetStream<SearchTextSignal>()
+            .SubscribeOn(Scheduler.ThreadPool)
+            .ObserveOnMainThread()
+            .Subscribe((s) => OnSearchTextSignal(s.Text));
+
+
         _vehicles3D = new Directory<Vehicle3D>();
         _vehicles3D.Initialize();
     }
-
 
     public void OnPanelCloseSignal(PanelCloseSignal signal)
     {
@@ -67,7 +72,6 @@ public class Container3DCoordinator : IInitializable
         _vehicles3D.RemoveItem(vid);
         vehicle3d?.Dispose();
     }
-
 
     void OpenPanel(PanelOpenSignal signal)
     {
@@ -88,6 +92,18 @@ public class Container3DCoordinator : IInitializable
         }
     }
 
+    void OnSearchTextSignal(string text)
+    {
+        Debug.Log("[Container3DCoordinator.OnSearchTextSignal] " + text);
+        foreach(var x in _vehicles3D.GetItems())
+        {
+            if(text=="")
+                x.gameObject.SetActive(true);
+            else
+                if(x.GetDestination()!=null)
+                    x.gameObject.SetActive(x.GetDestination() == "" ? false : x.GetDestination().StartsWith(text));
+        }
+    }
 
     public void AddVehicle3D(Vehicle v)
     {

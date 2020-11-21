@@ -10,6 +10,10 @@ using model;
 
 public class Vehicle3D : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>, IDisposable
 {
+
+    private Vehicle _vehicle;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +29,13 @@ public class Vehicle3D : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>, IDispos
     void BindModel(Vehicle v)
     {
         //Debug.Log("[Vehicle3D.BindModel] ...");
+        _vehicle = v;
     }
 
+    public string GetDestination()
+    {
+        return _vehicle.DestinationName;
+    }
 
     public class Factory : PlaceholderFactory<Vehicle, Vehicle3D>
     {

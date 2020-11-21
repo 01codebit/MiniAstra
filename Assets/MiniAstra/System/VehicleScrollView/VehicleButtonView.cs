@@ -109,6 +109,10 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
             .Subscribe(_ => FireSignal());
     }
 
+    public string GetDestination()
+    {
+        return _vehicle.DestinationName;
+    }
 
     private void FireSignal()
     {
