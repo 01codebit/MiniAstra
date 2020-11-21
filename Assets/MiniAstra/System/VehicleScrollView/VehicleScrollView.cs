@@ -58,17 +58,22 @@ public class VehicleScrollView : MonoBehaviour
 
     void OnSearchTextSignal(string text)
     {
+
         Debug.Log("[VehicleScrollView.OnSearchTextSignal] " + text);
+        Debug.Log("[VehicleScrollView.OnSearchTextSignal] _buttons.Count: " + _buttons.Count);
         foreach(var x in _buttons)
         {
             if(text=="")
-                x.gameObject.SetActive(true);
-            else if(text=="x")
-                x.gameObject.SetActive(false);
+                x.GameObject.SetActive(true);
+            else if(text=="x")                
+                x.GameObject.SetActive(false);
             else
+            {
                 if(x.GetDestination()!=null)
-                    x.gameObject.SetActive(x.GetDestination() == "" ? false : x.GetDestination().StartsWith(text));
+                {
+                    x.GameObject.SetActive(x.GetDestination() == "" ? true : x.GetDestination().StartsWith(text));
+                }
+            }
         }
-
     }
 }

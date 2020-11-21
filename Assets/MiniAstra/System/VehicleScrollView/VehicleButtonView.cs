@@ -70,10 +70,12 @@ public class VehicleButtonView : MonoBehaviour, IPoolable<Vehicle, IMemoryPool>,
 
     }
 
+    public GameObject GameObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject = this.gameObject;
     }
 
     // Update is called once per frame

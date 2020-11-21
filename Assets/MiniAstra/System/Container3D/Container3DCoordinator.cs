@@ -94,15 +94,46 @@ public class Container3DCoordinator : IInitializable
 
     void OnSearchTextSignal(string text)
     {
-        Debug.Log("[Container3DCoordinator.OnSearchTextSignal] " + text);
+        Debug.Log("[Container3DCoordinator.OnSearchTextSignal] '" + text + "'");
+        int countX = 0;
+        int countEmpty = 0;
+        int countSearch = 0;
+        int countFound = 0;
         foreach(var x in _vehicles3D.GetItems())
         {
-            if(text=="")
+            if(text.Equals(""))
+            {
+                countEmpty++;
                 x.gameObject.SetActive(true);
+            }
+            else if(text.Equals("xxx"))
+            {
+                countX++;
+                x.gameObject.SetActive(false);
+            }
             else
+            {
+                countSearch++;
                 if(x.GetDestination()!=null)
-                    x.gameObject.SetActive(x.GetDestination() == "" ? false : x.GetDestination().StartsWith(text));
+                {
+                    if(x.GetDestination().Equals(""))
+                        x.gameObject.SetActive(false);
+                    else
+                        if(x.GetDestination().StartsWith(text))
+                        {
+                            countFound++;
+                            x.gameObject.SetActive(true);
+                        }
+                        else
+                            x.gameObject.SetActive(false);
+                }
+            }
         }
+        Debug.Log("countX: " + countX);
+        Debug.Log("countEmpty: " + countEmpty);
+        Debug.Log("countSearch: " + countSearch);
+        Debug.Log("countFound: " + countFound);
+
     }
 
     public void AddVehicle3D(Vehicle v)
