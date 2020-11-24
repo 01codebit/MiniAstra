@@ -92,48 +92,32 @@ public class Container3DCoordinator : IInitializable
         }
     }
 
-    void OnSearchTextSignal(string text)
+    void OnSearchTextSignal(string searchText)
     {
-        Debug.Log("[Container3DCoordinator.OnSearchTextSignal] '" + text + "'");
-        int countX = 0;
-        int countEmpty = 0;
-        int countSearch = 0;
+        //Debug.Log("[Container3DCoordinator.OnSearchTextSignal] '" + searchText + "'");
         int countFound = 0;
         foreach(var x in _vehicles3D.GetItems())
         {
-            if(text.Equals(""))
+            if(string.IsNullOrEmpty(searchText))
             {
-                countEmpty++;
                 x.gameObject.SetActive(true);
-            }
-            else if(text.Equals("xxx"))
-            {
-                countX++;
-                x.gameObject.SetActive(false);
             }
             else
             {
-                countSearch++;
-                if(x.GetDestination()!=null)
-                {
-                    if(x.GetDestination().Equals(""))
-                        x.gameObject.SetActive(false);
+                if(string.IsNullOrEmpty(x.GetDestination()))
+                    x.gameObject.SetActive(false);
+                else 
+//                    if(x.GetDestination().StartsWith(text))
+                    if(x.GetDestination().ToUpper().Contains(searchText.ToUpper()))
+                    {
+                        countFound++;
+                        x.gameObject.SetActive(true);
+                    }
                     else
-                        if(x.GetDestination().StartsWith(text))
-                        {
-                            countFound++;
-                            x.gameObject.SetActive(true);
-                        }
-                        else
-                            x.gameObject.SetActive(false);
-                }
+                        x.gameObject.SetActive(false);
             }
         }
-        Debug.Log("countX: " + countX);
-        Debug.Log("countEmpty: " + countEmpty);
-        Debug.Log("countSearch: " + countSearch);
-        Debug.Log("countFound: " + countFound);
-
+        Debug.Log("[Container3DCoordinator.OnSearchTextSignal] countFound: " + countFound);
     }
 
     public void AddVehicle3D(Vehicle v)
@@ -167,7 +151,8 @@ public class Container3DCoordinator : IInitializable
 
     void SetVehicle3DTransform(Vehicle3D vehicle3D, Vehicle v)
     {
-        vehicle3D.gameObject.transform.SetParent(_container3dView.GetTransform());
+        var gameObjTrans = vehicle3D.gameObject.transform;
+        gameObjTrans.SetParent(_container3dView.GetTransform());
 
         var latitude = v.Location.Coordinates[0];
         var longitude = v.Location.Coordinates[1];
@@ -175,11 +160,11 @@ public class Container3DCoordinator : IInitializable
         float x = (float)(latitude * 1000000) % 100;
         float z = (float)(longitude * 1000000) % 100;
 
-        vehicle3D.gameObject.transform.position = new Vector3(x, 0, z);
+        gameObjTrans.position = new Vector3(x, 0, z);
 
         System.Random random = new System.Random();
         float r = random.Next(0, 8) * 45.0f;
-        vehicle3D.gameObject.transform.rotation = Quaternion.Euler(0, r, 0);
+        gameObjTrans.rotation = Quaternion.Euler(0, r, 0);
     }
 
 }

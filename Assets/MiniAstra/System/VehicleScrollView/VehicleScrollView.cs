@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AiUnity.Common.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
@@ -61,19 +62,25 @@ public class VehicleScrollView : MonoBehaviour
 
         Debug.Log("[VehicleScrollView.OnSearchTextSignal] " + text);
         Debug.Log("[VehicleScrollView.OnSearchTextSignal] _buttons.Count: " + _buttons.Count);
+        int countFound = 0;
         foreach(var x in _buttons)
         {
-            if(text=="")
+            if(text.IsNullOrEmpty())
                 x.GameObject.SetActive(true);
-            else if(text=="x")                
-                x.GameObject.SetActive(false);
             else
             {
-                if(x.GetDestination()!=null)
-                {
-                    x.GameObject.SetActive(x.GetDestination() == "" ? true : x.GetDestination().StartsWith(text));
-                }
+                if(x.GetDestination().IsNullOrEmpty())
+                    x.GameObject.SetActive(false);
+                else 
+                    if(x.GetDestination().ToUpper().Contains(text.ToUpper()))
+                    {
+                        countFound++;
+                        x.gameObject.SetActive(true);
+                    }
+                    else
+                        x.gameObject.SetActive(false);
             }
         }
+        Debug.Log("[VehicleScrollView.OnSearchTextSignal] countFound: " + countFound);
     }
 }

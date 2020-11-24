@@ -9,8 +9,8 @@ using Zenject;
 
 public class SearchInputView : MonoBehaviour
 {
-    public TextMeshProUGUI searchText;
-    private SignalBus _signalBus;
+    public TMP_InputField searchText;
+    private SignalBus _signalBus;    
 
     [Inject]
     private void Inject(SignalBus signalBus)
@@ -35,6 +35,7 @@ public class SearchInputView : MonoBehaviour
     private void SendSearchText(string text)
     {
         Debug.Log("[SendSearchText]");
+        //text = text.Replace("\u200B", "");
         _signalBus.Fire(new SearchTextSignal(text));
     }
 
@@ -48,5 +49,5 @@ class SearchTextSignal
         Text = text;
     }
 
-    public string Text { get; private set; }
+    public string Text;
 }
